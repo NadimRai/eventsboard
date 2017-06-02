@@ -1,3 +1,7 @@
 <%= @event.title %>
 <%= @event.venue %>
 <%= @event.location %>
+
+<p><%= link_to "Edit", edit_event_path(@event) %></p>
+<p><%= link_to "Delete", event_path(@event), method: :delete, data: {confirm: 'Are you sure?'} %>
+<p><%= link_to "Back", events_path %></p>
