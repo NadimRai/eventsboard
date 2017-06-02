@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 	def index
 		@events = Event.all
 	end
-	
+
 	def new
 		@event  = Event.new
 	end
@@ -27,6 +27,11 @@ class EventsController < ApplicationController
 	end
 
 	def update
+		if @event.update(event_params)
+			redirect_to @event 
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
