@@ -3,8 +3,8 @@
 <%= link_to 'New Events', new_event_path %>
 <% @events.each do |event| %>
 	<p><strong><%= link_to event.title, event %></strong></p>
-	<p><%= event.start_date %></p>
-	<p><%= event.end_date %></p>
+	<p><%= time_format(event.start_date) %></p>
+	<p><%= time_format(event.end_date)%></p>
 	<p><%= event.venue %></p>
 	<p><%= event.location %></p>
 <% end %>

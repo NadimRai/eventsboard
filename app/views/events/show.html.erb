@@ -1,5 +1,7 @@
 <% provide(:title, @event.title) %>
 <%= @event.title %>
+<%= time_format(@event.start_date) %>
+<%= time_format(@event.end_date) %>
 <%= @event.venue %>
 <%= @event.location %>
 
