@@ -33,6 +33,7 @@ gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.3'
 gem 'pundit', '~> 1.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
+gem 'carrierwave', '~> 1.1'
 
 
 group :development, :test do
