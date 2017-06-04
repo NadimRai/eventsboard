@@ -34,6 +34,8 @@ gem 'devise', '~> 4.3'
 gem 'pundit', '~> 1.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.1'
 gem 'carrierwave', '~> 1.1'
+gem 'fog', '~> 1.40'
+gem 'mini_magick', '~> 4.7'
 
 
 group :development, :test do
