@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 	before_action :set_event, only:[:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except:[:index, :show]
+	before_action :authorize_owner!, only: [:edit, :update, :destroy]
 	
 	def index
 		@events = Event.all
@@ -11,6 +13,8 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.new(event_params)
+		@event.organizer = current_user
+
 		if @event.save
 			flash[:notice] = "Event was created"
 			redirect_to @event 
@@ -52,5 +56,14 @@ class EventsController < ApplicationController
 		rescue ActiveRecord::RecordNotFound
 			flash[:alert] = "The page you requested does not exist"
 			redirect_to root_path
+	end
+
+	def authorize_owner!
+		authenticate_user!
+
+		unless @event.organizer == current_user 
+			flash[:alert] = "You do not have permission to '#{action_name}' the '#{@event.title.upcase}' event"
+			redirect_to root_path
+		end
 	end
 end
