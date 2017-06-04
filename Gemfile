@@ -37,6 +37,8 @@ gem 'carrierwave', '~> 1.1'
 gem 'fog', '~> 1.40'
 gem 'mini_magick', '~> 4.7'
 gem 'searchkick', '~> 2.3'
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+gem 'bootstrap-will_paginate', '~> 1.0'
 
 
 group :development, :test do
