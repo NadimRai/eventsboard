@@ -36,6 +36,7 @@ gem 'friendly_id', '~> 5.2', '>= 5.2.1'
 gem 'carrierwave', '~> 1.1'
 gem 'fog', '~> 1.40'
 gem 'mini_magick', '~> 4.7'
+gem 'searchkick', '~> 2.3'
 
 
 group :development, :test do
