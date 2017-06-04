@@ -32,6 +32,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.3'
 gem 'pundit', '~> 1.1'
+gem 'friendly_id', '~> 5.2', '>= 5.2.1'
 
 
 group :development, :test do
