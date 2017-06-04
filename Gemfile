@@ -39,6 +39,7 @@ gem 'mini_magick', '~> 4.7'
 gem 'searchkick', '~> 2.3'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'bootstrap-will_paginate', '~> 1.0'
+gem 'binding_of_caller', '~> 0.7.2'
 
 
 group :development, :test do

@@ -29,7 +29,7 @@ class EventPolicy < ApplicationPolicy
   	update?
   end
 
-  def destroy
+  def destroy?
   	user.present? && user == event.organizer
   end
 
