@@ -1,0 +1,46 @@
+<header>
+  <h1><%= @user.username %>'s Hosted Events</h1>
+  <p><%= @user.username %> works at <strong><%= @user.organization_name %></strong></p>
+
+  <ul class="actions">
+    <li><%= link_to "Start Event", new_event_path, class: "new" if policy(Event).new? %></li>
+  </ul>
+</header>
+
+<!-- This is for organized events -->
+
+<% if @user.organized_events.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Event Status</th>
+        <th>Capacity</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.organized_events.reverse.each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event_path(event) %></td>
+          <td><%= time_format(event.start_date) %></td>
+          <td><%= time_format(event.end_date) %></td>
+          <td>
+            <%= link_to "Edit", edit_event_path(event), class: "edit" if policy(event).edit? %>
+            <%= link_to "Delete", event_path(event), method: :delete, data: {confirm: "Are you sure?"}, class: "delete" if policy(event).destroy? %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= @user.organization_name %> has no events yet</p>
+<% end %>
+
+
+
+<!-- This is for attended events or events to attend -->
+
