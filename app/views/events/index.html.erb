@@ -1,46 +1,49 @@
-<h2>All Events</h2>
+<header>
+  <h1>All Events</h1>
 
-<ul class="actions">
-	<li><%= link_to "New Event", new_event_path, class: "new" if policy(Event).new? %></li>
-</ul>
+  <ul class="actions">
+    <li><%= link_to "New Event", new_event_path, class: "new" if policy(Event).new? %></li>
+  </ul>
+</header>
 
 <div class="row">
-	<div class="col-sm-3 pull-right">
-		<div class="sidebar">
-			<h3 class="discover">Discover</h3>
-			<ul class="nav nav-pills nav-stacked">
-				<li class="<%= 'active' if current_page?("/events")%>"><%= link_to "ALL EVENTS", events_path %></li>
-			</ul>
-		</div>
-	</div>
+  <div class="col-sm-3 pull-right">
+    <div class="sidebar">
+      <h3 class="discover">Discover</h3>
+      
+    </div>
+  </div>
+
+  
+  </div>
+
+<% @events.each do |event| %>
+ <div class="col-sm-9 pull-left">
+   <%= link_to event_path(event) do %>
+    <div class="events">
+      <div class="row">
+        <div class="col-sm-3">
+          
+        </div>
+        <div class="col-sm-9">
+          <h3 class="event-title"><%= event.title %></h3>
+          <p>
+            <span class="event-venue"><%= event.venue %> - <strong><%= event.location %></strong></span>
+          </p>
+          <p class="lead-time">
+            <span class="event-start"><%= time_format(event.start_date) %></span> <span class="pull-right">Organized by: <%= event.organizer %></span>
+          </p>
+          <p class="index-icons">
+            
+          </p>
+        </div>
+      </div>
+    </div>
+   <% end %>
+ </div>
+<% end %>
 </div>
 
-<div class="col-sm-9">
-	<h3>Discover and register to attend your favourite events right here</h3>
+<div class="text-center">
+   
 </div>
-<% @events.each do |event| %>
-	<div class="col-sm-9 pull-left">
-		<%= link_to event_path(event) do %>
-			<div class="events">
-				<div class="row">
-					<div class="col-sm-3">
-						<%= image_tag "http://placehold.it/200x100" %>
-					</div>
-					<div class="col-sm-9">
-						<h3 class="event-title"><%= event.title %></h3>
-						<p>
-							<span class="event-venue"><%= event.venue %>
-								- <strong><%= event.location %></strong>
-							</span>
-						</p>
-						<p class="lead-time">
-							<span class="event-start"><%= time_format(event.start_date) %></span>
-							<span class="pull-right">Oraganized by: 
-							<%= event.organizer.username %></span>
-						</p>
-					</div>
-				</div>
-			</div>
-		<% end %>
-	</div>
-<% end %>

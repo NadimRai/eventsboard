@@ -1,18 +1,13 @@
 <% provide(:title, @event.title) %>
 
 <header>
-	<h2><%= @event.title %></h2>
-	<ul class="actions">
-		<% if policy(@event).edit? %>
-			<li>
-				<%= link_to "Edit", edit_event_path(@event), class: "edit" %>
-			</li>
-		<% end %>
-		<% if policy(@event).destroy? %>
-			<li>
-				<%= link_to "Delete", event_path(@event), method: :delete, data: {confirm: "Are you sure?"}, class: "delete" %></li>
-		<% end %>
-	</ul>
+  <h1 id="show-title"><%= @event.title %></h1>
+
+  <ul class="actions">
+    <li><%= link_to "Edit Event", edit_event_path(@event), class: "edit" if policy(@event).edit? %></li>
+    <li><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"}, class: "delete" if policy(@event).destroy? %></li>
+    
+  </ul>
 </header>
 
 <div class="row">

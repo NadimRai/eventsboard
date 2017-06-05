@@ -3,6 +3,11 @@ class EventsController < ApplicationController
 	before_action :authenticate_user!, except:[:index, :show]
 	# before_action :authorize_owner!, only: [:edit, :update, :destroy]
 	
+	def currentuser
+
+    @events = Event.where(user_id: current_user).order('created_at DESC')
+	end
+
 	def index
 		@events = Event.all.order("created_at DESC")
 		authorize @events, :index?

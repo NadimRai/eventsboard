@@ -16,61 +16,120 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
-@import "font-awesome";
+ @import "font-awesome";
+ @import "events";
 
 body {
-	
-	background-color: #fefefe;
-	// color: #fff;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  // background: #f2f2f2;
+  padding-top: 70px;
 }
-.center {
-	text-align: center;
+
+
+a:hover {
+  text-decoration: none;
 }
-.navbar-default {
-	background-color: #fbfbfb;
-	border: none;	
-	// height: 50px;
+
+header {
+  @extend .page-header;
+  position: relative;
+  padding-bottom: 0;
+
+  &:first-child {
+    margin-top: 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    max-width: 55%;
+  }
 }
-.navbar-default .navbar-brand {
-	font-family: "Helveitica Neue", georgia, serif;
-	font-weight: 600;
-	color: #aa0103;
-	font-size: 30px;
+
+ul.actions {
+  @extend .list-unstyled;
+  @extend .list-inline;
+  position: absolute;
+  bottom: -2px;
+  right: 2px;
+  max-width: 45%;
+  text-align: right;
 }
-.navbar-default .navbar-brand:hover {
-	color: #423f40
+
+a.new,
+a.edit,
+a.delete {
+  @extend .btn;
+
+  &:before {
+    font-family: "FontAwesome";
+    padding-right: 0.5em;
+  }
 }
-.navbar-default .navbar-nav > li > a {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	font-weight: normal;
-	color: #555;
-	line-height: 25px;
+
+a.new {
+  @extend .btn-success;
+
+  &:before {
+    @extend .fa-plus;
+  }
 }
-.navbar-default .navbar-nav > li > a:hover {
-	color: #f23677;
+
+a.edit {
+  @extend .btn-primary;
+
+  &:before {
+    @extend .fa-pencil;
+  }
 }
-#create {
-	background-color: #e0336b;
-	color: #fff;
-	padding: 10px 15px;
-	margin-top: 5px;
-	margin-right: 15px;
-	border-radius: 10px;
-	font-family: "Helvetica Neue";
-	font-size: 16px;
-	font-weight: 900;
-	line-height: 22px;
+
+a.delete {
+  @extend .btn-danger;
+
+  &:before {
+    @extend .fa-trash;
+  }
 }
-.jumbotron {
-	// margin-top: 50px;
-	background-image: url(https://dl.dropboxusercontent.com/s/7lf9fg9ly7401z6/egoticket.jpg);
-	color: #fff;
-	// h1, h3 {
-	// 	font-family: 
-	// }
+
+.alert-notice {
+  @extend .alert-success;
 }
-.col-md-4:nth-child(3n+1){
-	clear: left;
+
+.alert-alert {
+  @extend .alert-danger;
 }
+
+
+span.past {
+  background: #c9302c;
+
+}
+
+span.upcoming {
+  background: #449d44;
+}
+
+span.upcoming,
+span.past {
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+
+  &:before {
+    font-family: "FontAwesome";
+    padding: 1.5em;
+  }
+}
+
+span.upcoming {
+  &:before {
+    @extend .fa-check;
+  }
+}
+
+span.past {
+  &:before {
+    @extend .fa-close;
+  }
+}
+
