@@ -5,14 +5,13 @@
 
   <ul class="actions">
     <li><%= link_to "Edit Event", edit_event_path(@event), class: "edit" if policy(@event).edit? %></li>
-    <li><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"}, class: "delete" if policy(@event).destroy? %></li>
-    
+    <li><%= link_to "Delete Event", event_path(@event), method: :delete, data: {confirm: "Are you sure?"}, class: "delete" if policy(@event).destroy? %></li>   
   </ul>
 </header>
 
 <div class="row">
 	<div class="col-sm-9">
-		<%= image_tag "http://via.placeholder.com/1080x500", class: "event-image" %>
+		<%= image_tag "http://via.placeholder.com/848x500", class: "event-image" %>
 
 		<div class="event-meta">
 			<h4><span class="event-start"><strong>Starts:</strong><%= time_format(@event.start_date) %></span></h4>
