@@ -26,7 +26,8 @@
 
 	<div class="col-sm-3">
 		<div class="sidebar">
-			<h4 class="organizer"><i class="fa fa-user" aria-hidden="true"></i>Oraganizer Name <%= @event.organizer.organization_name %></h4>
+			<h4 class="organizer"><i class="fa fa-user" aria-hidden="true"></i>
+			Oraganizer Name <%= link_to @event.organizer.username, user_path(@event.organizer) %></h4>
 			<p>
 				<span class="event-venue"><%= @event.venue %>, <strong><%= @event.location %></strong></span>
 			</p>
