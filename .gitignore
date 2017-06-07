@@ -17,3 +17,6 @@
 /yarn-error.log
 
 .byebug_history
+
+#Ignore all uploaded images
+public/uploads
