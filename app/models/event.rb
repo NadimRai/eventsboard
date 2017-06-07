@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+	searchkick
+	
 	extend FriendlyId
   	friendly_id :title, use: :slugged
 
