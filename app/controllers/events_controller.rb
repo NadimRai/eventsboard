@@ -40,6 +40,9 @@ class EventsController < ApplicationController
 	end
 
 	def show
+		authorize @event, :show?
+		@comment = Comment.new
+		@comment.event_id = @event.id
 	end
 
 	def edit
