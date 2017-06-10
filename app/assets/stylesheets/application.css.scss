@@ -134,3 +134,19 @@ span.past {
   }
 }
 
+
+#like {
+  font-size: 24px;
+
+  &:before {
+    @extend .fa-thumbs-o-up;
+  }
+}
+
+#dislike {
+  font-size: 24px;
+
+  &:before {
+    @extend .fa-thumbs-o-down;
+  }
+}
