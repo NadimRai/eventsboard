@@ -10,6 +10,8 @@ class Event < ApplicationRecord
 	has_many :attendances, dependent: :destroy
   	has_many :attendees, through: :attendances
   	has_many :likes, dependent: :destroy
+  	has_many :taggings, dependent: :destroy
+  	has_many :tags, through: :taggings
 
 	validates :title, presence: true, length: {minimum: 5}
 	validates :venue, presence: true
