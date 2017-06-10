@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+	attr_accessor :tag_list
+
 	searchkick
 	
 	extend FriendlyId
@@ -18,6 +20,16 @@ class Event < ApplicationRecord
 	validates :location, presence: true
 
 	mount_uploader :image, ImageUploader
+
+	def tag_list
+    	tags.join(", ")
+  	end
+
+  	def tag_list=(names)
+    	tag_names = names.split(",").collect {|str| str.strip.downcase}.uniq
+    	new_or_existing_tags = tag_names.collect {|tag_name| Tag.find_or_create_by(name: tag_name)}
+    	self.tags = new_or_existing_tags
+  	end
 
 	def seats_left
     	seats - attendees.count

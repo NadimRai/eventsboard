@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show]
-
+  resources :tags, only: [:show]
+  
   resources :users, only: [:show]
   get 'seller' , to: 'events#currentuser'
   root 'events#index'
