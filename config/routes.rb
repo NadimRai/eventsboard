@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
   get 'seller' , to: 'events#currentuser'
-  root 'events#index'
+  root 'home#index'
 end
