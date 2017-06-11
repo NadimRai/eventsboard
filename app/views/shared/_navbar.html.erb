@@ -35,7 +35,7 @@
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li class="<%= "active" if current_page?("/users/edit")%>"> <%= link_to edit_user_registration_path do %>
-             <%= image_tag "http://lorempixel.com/400/200/", width: 25, class: "img-circle" %>  <%= current_user.username %>
+             <%= image_tag avatar_url(current_user), width: 20, class: "img-circle" %>  <%= current_user.username %>
           <% end %>
         <li class="<%= "active" if current_page?("/users/#{current_user.username}")%>"><%= link_to "My Events", user_path(current_user) %></li>
         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
